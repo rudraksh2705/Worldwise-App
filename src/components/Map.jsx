@@ -22,7 +22,7 @@ function useUrlPosition() {
 
 function Map() {
   const { cities } = useCities();
-  const [mapPosition, setMapPosition] = useState([40, 0]);
+  const [mapPosition, setMapPosition] = useState([28.7041, 77.1025]);
 
   const {
     isLoading: isLoadingPosition,

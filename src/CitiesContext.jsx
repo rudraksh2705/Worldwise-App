@@ -72,13 +72,13 @@ export default function ContextProvider({ children }) {
   useEffect(() => {
     localStorage.setItem("cities", JSON.stringify(cities));
   }, [cities]);
-
   useEffect(() => {
     async function fetchCities() {
       try {
         dispatch({ type: "setLoading" });
-        const res = citiesli;
-        const data = await res.json();
+
+        // No need for await or .json() — just use the array directly
+        const data = citiesli;
         dispatch({ type: "setCity", payload: data });
       } catch {
         alert("Failed to load cities.");

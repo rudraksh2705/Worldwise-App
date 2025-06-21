@@ -1,6 +1,45 @@
 import { createContext, useEffect, useContext, useReducer } from "react";
 import PropTypes from "prop-types"; // ✅ import prop-types
 
+const citiesli = [
+  {
+    cityName: "Jaipur",
+    country: "India",
+    emoji: "🇮🇳",
+    date: "2027-10-31T15:59:59.138Z",
+    notes: "My favorite city so far!",
+    position: {
+      lat: 26.9124,
+      lng: 75.7873,
+    },
+    id: 73930385,
+  },
+  {
+    cityName: "Mumbai",
+    country: "India",
+    emoji: "🇮🇳",
+    date: "2027-07-15T08:22:53.976Z",
+    notes: "",
+    position: {
+      lat: 18.9582,
+      lng: 72.8321,
+    },
+    id: 17806751,
+  },
+  {
+    cityName: "Delhi",
+    country: "India",
+    emoji: "🇮🇳",
+    date: "2027-02-12T09:24:11.863Z",
+    notes: "Amazing 😃",
+    position: {
+      lat: 28.7041,
+      lng: 77.1025,
+    },
+    id: 98443197,
+  },
+];
+
 export const CityContext = createContext();
 
 const initialState = {
@@ -38,7 +77,7 @@ export default function ContextProvider({ children }) {
     async function fetchCities() {
       try {
         dispatch({ type: "setLoading" });
-        const res = await fetch("http://localhost:9000/cities");
+        const res = citiesli;
         const data = await res.json();
         dispatch({ type: "setCity", payload: data });
       } catch {
